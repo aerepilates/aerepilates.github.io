@@ -1,3 +1,820 @@
-<html>
-  WELCOME
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AERÉ PILATES | Luxury Group Reformer Studio</title>
+  <meta name="description" content="AERÉ Pilates is a luxury reformer Pilates studio offering premium small-group classes designed for strength, control, and modern movement." />
+
+  <!-- Optional: favicon (save your icon as favicon.png next to this file) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#6b7280;
+      --paper:#fbfaf8;
+      --paper2:#f2efe9;
+      --card:#ffffff;
+      --line: rgba(15, 23, 42, .10);
+
+      --night:#070b14;
+      --navy:#0f172a;
+
+      --gold:#d7b56d;
+      --gold2:#b8892f;
+
+      --shadow: 0 26px 70px rgba(0,0,0,.18);
+      --shadow2: 0 16px 44px rgba(15,23,42,.10);
+      --radius: 22px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 800px at 20% 8%, rgba(215,181,109,.12), transparent 60%),
+        radial-gradient(1000px 700px at 85% 0%, rgba(15,23,42,.10), transparent 55%),
+        linear-gradient(180deg, var(--paper), var(--paper2));
+    }
+
+    /* ====== NAV ====== */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,.78);
+      border-bottom: 1px solid rgba(15,23,42,.06);
+    }
+    .nav-inner{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color: var(--ink);
+      min-width: 210px;
+    }
+    .brand-mark{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(15,23,42,1), rgba(7,11,20,1));
+      box-shadow: 0 12px 26px rgba(15,23,42,.20);
+      display:grid;
+      place-items:center;
+      border: 1px solid rgba(215,181,109,.28);
+      overflow:hidden;
+      position: relative;
+    }
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(520px 180px at 0% 0%, rgba(215,181,109,.22), transparent 55%);
+      pointer-events:none;
+    }
+    .brand-name{
+      line-height: 1.05;
+    }
+    .brand-name strong{
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      letter-spacing: .6px;
+      display:block;
+    }
+    .brand-name span{
+      font-size: .82rem;
+      color: rgba(15,23,42,.70);
+      display:block;
+      margin-top: 3px;
+      letter-spacing: .25px;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:center;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color: rgba(15,23,42,.80);
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .nav-links a:hover{
+      background: rgba(15,23,42,.06);
+      color: rgba(15,23,42,1);
+      transform: translateY(-1px);
+    }
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      justify-content:flex-end;
+      min-width: 260px;
+    }
+    .pill{
+      font-size: .85rem;
+      font-weight: 800;
+      color: rgba(15,23,42,.85);
+      background: rgba(215,181,109,.18);
+      border: 1px solid rgba(215,181,109,.30);
+      padding: 9px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 12px 16px;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      cursor:pointer;
+      white-space: nowrap;
+    }
+    .btn-primary{
+      color: #0b1220;
+      background: linear-gradient(135deg, #f1e4c5, var(--gold));
+      border: 1px solid rgba(184,137,47,.35);
+      box-shadow: 0 12px 28px rgba(215,181,109,.30);
+    }
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(215,181,109,.34);
+    }
+    .btn-ghost{
+      color: rgba(15,23,42,.92);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(15,23,42,.12);
+    }
+    .btn-ghost:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15,23,42,.10);
+    }
+
+    /* ====== HERO ====== */
+    header.hero{
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(215,181,109,.18), transparent 60%),
+        radial-gradient(800px 600px at 85% 0%, rgba(255,255,255,.12), transparent 55%),
+        linear-gradient(135deg, var(--navy), var(--night));
+      color:#fff;
+      padding: 82px 18px 48px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-inner{
+      max-width: 1180px;
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 38px;
+      align-items:center;
+    }
+    .hero h1{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.5rem, 4.1vw, 3.9rem);
+      margin: 0 0 12px 0;
+      letter-spacing: .6px;
+    }
+    .hero .lead{
+      margin: 0 0 22px 0;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      opacity:.92;
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+    .hero-meta{
+      margin-top: 18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      opacity:.98;
+    }
+    .meta-chip{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: .92rem;
+    }
+    .meta-dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(215,181,109,.12);
+      flex: 0 0 auto;
+    }
+
+    .hero-card{
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 24px;
+      box-shadow: 0 24px 62px rgba(0,0,0,.22);
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 260px at 0% 0%, rgba(215,181,109,.20), transparent 55%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .hero-card > *{ position:relative; }
+    .hero-card h3{
+      margin: 0 0 10px 0;
+      font-family: "Playfair Display", serif;
+      letter-spacing: .35px;
+      font-size: 1.35rem;
+    }
+    .hero-card p{
+      margin: 0 0 14px 0;
+      line-height: 1.75;
+      opacity:.90;
+    }
+    .address{
+      margin-top: 14px;
+      border-top: 1px solid rgba(255,255,255,.16);
+      padding-top: 14px;
+      font-size: .96rem;
+      line-height: 1.7;
+      opacity:.97;
+    }
+    .address strong{ color:#fff; }
+    .address a{
+      color:#fff;
+      opacity:.92;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    /* ====== SECTIONS ====== */
+    section{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 72px 18px;
+    }
+    h2{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.0rem, 2.6vw, 2.7rem);
+      margin: 0 0 14px 0;
+      letter-spacing: .35px;
+      text-align:center;
+      color: var(--ink);
+    }
+    .sub{
+      max-width: 72ch;
+      margin: 0 auto 34px;
+      text-align:center;
+      color: rgba(15,23,42,.72);
+      line-height:1.8;
+      font-size: 1.03rem;
+    }
+    .divider{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+    .divider-line{
+      height: 1px;
+      background: rgba(15,23,42,.08);
+      border-radius: 999px;
+    }
+
+    /* Feature grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+    .feature{
+      grid-column: span 4;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: 0 14px 40px rgba(15,23,42,.08);
+    }
+    .feature h3{
+      margin: 0 0 8px 0;
+      font-size: 1.1rem;
+      letter-spacing:.2px;
+    }
+    .feature p{
+      margin: 0;
+      color: rgba(15,23,42,.72);
+      line-height:1.7;
+    }
+
+    /* Cards */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 22px;
+      margin-top: 18px;
+    }
+    .card{
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 26px 22px;
+      box-shadow: var(--shadow2);
+      transition: transform .22s ease, box-shadow .22s ease;
+      position: relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 250px at 0% 0%, rgba(215,181,109,.22), transparent 55%);
+      opacity:.95;
+      pointer-events:none;
+    }
+    .card > *{ position:relative; }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(215,181,109,.18);
+      border: 1px solid rgba(215,181,109,.28);
+      color: rgba(15,23,42,.84);
+      font-weight: 900;
+      font-size: .78rem;
+      letter-spacing:.35px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .card h3{
+      margin: 0 0 8px 0;
+      font-size: 1.35rem;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin: 0 0 14px 0;
+      line-height: 1.75;
+      color: rgba(15,23,42,.75);
+    }
+    .row{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .price{
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing:.2px;
+    }
+    .note{
+      font-size: .86rem;
+      color: rgba(15,23,42,.62);
+    }
+
+    /* Pricing tables (luxury) */
+    .pricing-wrap{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+      margin-top: 18px;
+      align-items: stretch;
+    }
+    .panel{
+      grid-column: span 6;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: calc(var(--radius) + 6px);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .panel-head{
+      padding: 22px 22px 12px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      background:
+        radial-gradient(700px 260px at 0% 0%, rgba(215,181,109,.18), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75));
+    }
+    .panel-head h3{
+      margin:0;
+      font-size: 1.25rem;
+      letter-spacing:.2px;
+    }
+    .panel-head p{
+      margin: 8px 0 0;
+      color: rgba(15,23,42,.70);
+      line-height: 1.7;
+    }
+    .panel-body{
+      padding: 12px 22px 22px;
+    }
+    .lineitem{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .lineitem:last-child{ border-bottom: none; padding-bottom: 4px; }
+    .li-left{
+      display:flex;
+      flex-direction:column;
+      gap: 4px;
+    }
+    .li-title{
+      font-weight: 900;
+      letter-spacing:.15px;
+    }
+    .li-sub{
+      font-size: .9rem;
+      color: rgba(15,23,42,.65);
+      line-height:1.5;
+    }
+    .li-price{
+      font-weight: 900;
+      font-size: 1.08rem;
+      letter-spacing:.2px;
+      white-space: nowrap;
+    }
+
+    /* CTA */
+    .cta{
+      max-width: 1180px;
+      margin: 0 auto 72px;
+      padding: 0 18px;
+    }
+    .cta-box{
+      background:
+        radial-gradient(900px 520px at 20% 20%, rgba(215,181,109,.22), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(255,255,255,.14), transparent 55%),
+        linear-gradient(135deg, var(--navy), var(--night));
+      color:#fff;
+      border-radius: calc(var(--radius) + 12px);
+      padding: 46px 26px;
+      box-shadow: 0 30px 78px rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap:wrap;
+    }
+    .cta-box h2{
+      color:#fff;
+      text-align:left;
+      margin:0 0 6px 0;
+      font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+    }
+    .cta-box p{
+      margin:0;
+      opacity:.9;
+      line-height: 1.7;
+    }
+
+    footer{
+      text-align:center;
+      padding: 34px 18px 52px;
+      color: rgba(15,23,42,.62);
+      font-size: .95rem;
+    }
+    footer a{
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      .nav-cta{ min-width: auto; }
+      .brand{ min-width: auto; }
+      .panel{ grid-column: span 12; }
+    }
+    @media (max-width: 680px){
+      .pill{ display:none; }
+      .nav-links{ display:none; }
+      header.hero{ padding-top: 58px; }
+      .feature{ grid-column: span 12; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="AERÉ PILATES Home">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- AERÉ monogram -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M6.2 18.2 11.7 5.8h.7l5.4 12.4h-2.2l-1.1-2.6H9.5l-1.1 2.6H6.2Zm4.1-4.4h3.4L12 9.7l-1.7 4.1Z" fill="#d7b56d"/>
+            <path d="M8.7 12.1h6.6v1.6H8.7v-1.6Z" fill="#ffffff" opacity=".85"/>
+          </svg>
+        </div>
+        <div class="brand-name">
+          <strong>AERÉ PILATES</strong>
+          <span>Luxury Group Reformer Studio</span>
+        </div>
+      </a>
+
+      <div class="nav-links" aria-label="Primary Navigation">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#classes">Classes</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#location">Location</a>
+      </div>
+
+      <div class="nav-cta">
+        <span class="pill">Small-group only</span>
+        <!-- Replace with your real booking link (Square, Mindbody, etc.) -->
+        <a class="btn btn-primary" href="https://squareup.com/appointments" target="_blank" rel="noopener">Schedule Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <h1>Move light. Train strong.</h1>
+        <p class="lead">
+          AERÉ is a luxury reformer Pilates studio offering elevated small-group classes designed for strength, control, and modern movement.
+          Expect precision coaching, refined space, and a calm intensity that delivers results.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://squareup.com/appointments" target="_blank" rel="noopener">Schedule Now</a>
+          <a class="btn btn-ghost" href="#pricing">View Pricing</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-chip"><span class="meta-dot"></span> Premium small-group reformer</div>
+          <div class="meta-chip"><span class="meta-dot"></span> ClassPass-friendly</div>
+          <div class="meta-chip"><span class="meta-dot"></span> High-touch coaching</div>
+        </div>
+      </div>
+
+      <div class="hero-card" id="location">
+        <h3>Visit AERÉ</h3>
+        <p>
+          A refined studio experience designed for focus: soft lighting, clean lines, and intentional calm.
+        </p>
+
+        <div class="address">
+          <strong>Location</strong><br/>
+          White Plains, NY (studio address coming soon)<br/>
+          <br/>
+          <strong>Contact</strong><br/>
+          <a href="mailto:hello@aerepilates.com">hello@aerepilates.com</a><br/>
+          <a href="https://instagram.com/" target="_blank" rel="noopener">@aerepilates</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <h2>Our Philosophy</h2>
+    <p class="sub">
+      Luxury isn’t loud. It’s precise. Every class is crafted to feel calm, controlled, and effective—strength that looks effortless and feels clean.
+    </p>
+
+    <div class="grid">
+      <div class="feature">
+        <h3>Precision Coaching</h3>
+        <p>Form-forward cues and thoughtful progressions—built for all levels, designed for real results.</p>
+      </div>
+      <div class="feature">
+        <h3>Controlled Intensity</h3>
+        <p>Low-impact, high-burn programming that strengthens, lengthens, and improves posture and mobility.</p>
+      </div>
+      <div class="feature">
+        <h3>Refined Studio Experience</h3>
+        <p>Small groups, elevated environment, and a consistent standard—so every class feels premium.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <!-- CLASSES -->
+  <section id="classes">
+    <h2>Signature Group Classes</h2>
+    <p class="sub">Designed for ClassPass discovery — crafted for member-level loyalty.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="badge">Signature</div>
+        <h3>AERÉ Reformer Flow</h3>
+        <p>Fluid, controlled sequences focused on breath, alignment, and length—your elevated foundation class.</p>
+        <div class="row">
+          <div class="price">$55</div>
+          <div class="note">All levels</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="badge">Sculpt</div>
+        <h3>Sculpt & Control</h3>
+        <p>Low-impact strength with intentional burn blocks—glutes, core, and posture in a refined format.</p>
+        <div class="row">
+          <div class="price">$55</div>
+          <div class="note">Moderate</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="badge">Power</div>
+        <h3>Power Reformer</h3>
+        <p>Athletic programming for stability, stamina, and strength—still controlled, just elevated intensity.</p>
+        <div class="row">
+          <div class="price">$55</div>
+          <div class="note">Intermediate+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p class="sub">Premium pricing designed to protect quality, reformer availability, and the studio experience.</p>
+
+    <div class="pricing-wrap">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Drop-In</h3>
+          <p>Luxury group reformer classes. Small-group only.</p>
+        </div>
+        <div class="panel-body">
+          <div class="lineitem">
+            <div class="li-left">
+              <div class="li-title">Single Group Reformer Class</div>
+              <div class="li-sub">Any signature class</div>
+            </div>
+            <div class="li-price">$55</div>
+          </div>
+
+          <div class="lineitem">
+            <div class="li-left">
+              <div class="li-title">First-Time Intro Class</div>
+              <div class="li-sub">For new clients only</div>
+            </div>
+            <div class="li-price">$45</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Class Packs</h3>
+          <p>Minimal discounts to keep the brand premium while rewarding commitment.</p>
+        </div>
+        <div class="panel-body">
+          <div class="lineitem">
+            <div class="li-left">
+              <div class="li-title">3-Class Pack</div>
+              <div class="li-sub">Luxury trial</div>
+            </div>
+            <div class="li-price">$165</div>
+          </div>
+
+          <div class="lineitem">
+            <div class="li-left">
+              <div class="li-title">5-Class Pack</div>
+              <div class="li-sub">Most popular</div>
+            </div>
+            <div class="li-price">$265</div>
+          </div>
+
+          <div class="lineitem">
+            <div class="li-left">
+              <div class="li-title">10-Class Pack</div>
+              <div class="li-sub">Best value</div>
+            </div>
+            <div class="li-price">$510</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sub" style="margin-top:22px;">
+      <strong>ClassPass:</strong> limited spots per class to protect member access and studio standards.
+    </p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <!-- MEMBERSHIPS -->
+  <section id="memberships">
+    <h2>Memberships</h2>
+    <p class="sub">For clients who want consistency, priority scheduling, and the full AERÉ experience.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="badge">Membership</div>
+        <h3>4 Classes / Month</h3>
+        <p>Perfect for routine and recovery—elevated training without over-committing.</p>
+        <div class="row">
+          <div class="price">$190</div>
+          <div class="note">Monthly</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="badge">Membership</div>
+        <h3>8 Classes / Month</h3>
+        <p>Our strongest lifestyle option—progress faster with a consistent weekly rhythm.</p>
+        <div class="row">
+          <div class="price">$350</div>
+          <div class="note">Monthly</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="badge">Premium</div>
+        <h3>Unlimited Group</h3>
+        <p>For clients who want priority access and the full studio routine—your luxury baseline.</p>
+        <div class="row">
+          <div class="price">$450</div>
+          <div class="note">Monthly</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta" id="book">
+    <div class="cta-box">
+      <div>
+        <h2>Reserve your reformer</h2>
+        <p>Small-group only • Limited spots • Premium studio standard</p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="https://squareup.com/appointments" target="_blank" rel="noopener">Schedule Now</a>
+        <a class="btn btn-ghost" href="mailto:hello@aerepilates.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 AERÉ PILATES · All rights reserved ·
+    <a href="mailto:hello@aerepilates.com">hello@aerepilates.com</a>
+  </footer>
+
+</body>
 </html>
